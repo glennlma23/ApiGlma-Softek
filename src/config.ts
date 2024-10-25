@@ -1,0 +1,1 @@
+export const uri_api = "https://swapi.py4e.com/api/";

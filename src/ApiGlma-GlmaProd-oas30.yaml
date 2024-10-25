@@ -1,0 +1,44 @@
+openapi: "3.0.1"
+info:
+  title: "ApiGlma"
+  description: Obtiene información de StarWars y de los extras. Adicionalmente, se puede solicitar el registro de extras. 
+  version: "2024-10-24T21:00:17Z"
+servers:
+- url: "https://oq4j5hpqyg.execute-api.us-east-2.amazonaws.com/{Stage}"
+  variables:
+    Stage:
+      default: "GlmaProd"
+paths:
+  /:
+    get:
+      parameters:
+      - name: "tipo"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      - name: "id"
+        in: "query"
+        required: true
+        schema:
+          type: "number"
+      responses:
+        "200":
+          description: "Registro obtenido"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                tipo:
+                  type: string
+                atributoprueba:
+                  type: string
+      responses:
+        "200":
+          description: "Extra registrado"
